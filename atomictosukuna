@@ -257,7 +257,7 @@ local function onAnimationPlayed(animationTrack)
 
         -- Create a new animation object with the new animation ID
         local newAnimation = Instance.new("Animation")
-        newAnimation.AnimationId = "rbxassetid://14611931363"
+        newAnimation.AnimationId = "rbxassetid://18450697195"
 
         -- Load the animation into the humanoid
         local newAnimTrack = humanoid:LoadAnimation(newAnimation)
@@ -683,14 +683,14 @@ local function onAnimationPlayed(animationTrack)
 
         -- Create a new animation instance for the new animation
         local newAnimation = Instance.new("Animation")
-        newAnimation.AnimationId = "rbxassetid://15956876217"
+        newAnimation.AnimationId = "rbxassetid://16746746641"
 
         -- Load and play the new animation
         local animTrack = humanoid:LoadAnimation(newAnimation)
         animTrack:Play()
 
         -- Adjust the speed to make the animation very slow (0.1x speed for 10% speed)
-        animTrack:AdjustSpeed(0.7) -- Slows down the animation to 10% of its normal speed
+        animTrack:AdjustSpeed(0.1) -- Slows down the animation to 10% of its normal speed
 
         -- Connect the 'Stopped' event to know when to stop the animation manually
         animTrack.Stopped:Connect(function()
@@ -815,62 +815,6 @@ end
 
 -- Connect the function to the AnimationPlayed event
 humanoid.AnimationPlayed:Connect(onAnimationPlayed)
-
-
---[[4 ult move move]]
-
-local animationId = 16082123712
-
--- Get the local player
-local player = game.Players.LocalPlayer
-
--- Wait for the player's character to load
-local character = player.Character or player.CharacterAdded:Wait()
-
--- Get the humanoid object from the character
-local humanoid = character:WaitForChild("Humanoid")
-
--- Function to handle when any animation is played
-local function onAnimationPlayed(animationTrack)
-    -- Check if the animation ID matches the one you're looking for
-    if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
-        -- Stop all currently playing animations
-        for _, animTrack in pairs(humanoid:GetPlayingAnimationTracks()) do
-            animTrack:Stop()
-        end
-
-        -- Create a new animation object with the new animation ID
-        local newAnimation = Instance.new("Animation")
-        newAnimation.AnimationId = "rbxassetid://18716893399"
-
-        -- Load the animation into the humanoid
-        local newAnimTrack = humanoid:LoadAnimation(newAnimation)
-
-        -- Optional: Adjust the animation speed and start time
-        local startTime = 0
-        newAnimTrack:Play()
-        newAnimTrack:AdjustSpeed(1)
-        newAnimTrack.TimePosition = startTime
-
-        -- Add particle effect
-        local particleEmitter = Instance.new("ParticleEmitter")
-        particleEmitter.Texture = "rbxassetid://1234567890"  -- Replace with your particle texture ID
-        particleEmitter.Parent = character.Head  -- Attach to the player's head (or any other part)
-        particleEmitter.Rate = 50  -- Number of particles per second
-        particleEmitter.Lifetime = NumberRange.new(1, 2)  -- How long particles last
-        particleEmitter.Speed = NumberRange.new(5, 10)  -- Speed of the particles
-        particleEmitter:Emit(100)  -- Emit 100 particles once
-
-        -- Send chat messages
-        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("You know your place", "All")
-        wait(1)  -- Wait 1 second
-        game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Fool.", "All")
-    end
-end
-
--- Connect the function to the AnimationPlayed event
-humanoid.AnimationPlayed:Connect(onAnimationPlayed)
-
 
 
 
