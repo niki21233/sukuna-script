@@ -1,4 +1,5 @@
 --sukuna
+print (enjoi)
 local player = game.Players.LocalPlayer
 local char = player.Character
 local Humanoid = char.Humanoid
