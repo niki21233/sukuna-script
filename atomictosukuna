@@ -607,7 +607,7 @@ local function onAnimationPlayed(animationTrack)
         if not messageSent then
             -- Send a message in the chat
             game:GetService("Chat"):Chat(player.Character.Head, 
-            "But you guys, with all your blessed talents, lost to a monkey like me who can’t even use Jujutsu.", Enum.ChatColor.Blue)
+            "cleave.", Enum.ChatColor.Blue)
             
             -- Set the messageSent variable to true to prevent further messages
             messageSent = true
@@ -744,7 +744,7 @@ local function onAnimationPlayed(animationTrack)
         -- Optional: Adjust the animation speed and start time
         local startTime = 0
         newAnimTrack:Play()
-        newAnimTrack:AdjustSpeed(1)
+        newAnimTrack:AdjustSpeed(0.5)
         newAnimTrack.TimePosition = startTime
 
         -- Add particle effect
@@ -768,7 +768,7 @@ humanoid.AnimationPlayed:Connect(onAnimationPlayed)
 
 
 
-local animationId = 1529336270
+local animationId = 15271263467
 
 -- Get the local player
 local player = game.Players.LocalPlayer
@@ -819,7 +819,7 @@ humanoid.AnimationPlayed:Connect(onAnimationPlayed)
 
 --[[4 ult move move]]
 
-local animationId = 18716893399
+local animationId = 16082123712
 
 -- Get the local player
 local player = game.Players.LocalPlayer
