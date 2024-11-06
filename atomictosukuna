@@ -257,7 +257,7 @@ local function onAnimationPlayed(animationTrack)
 
         -- Create a new animation object with the new animation ID
         local newAnimation = Instance.new("Animation")
-        newAnimation.AnimationId = "rbxassetid://18450697195"
+        newAnimation.AnimationId = "rbxassetid://18450698238"
 
         -- Load the animation into the humanoid
         local newAnimTrack = humanoid:LoadAnimation(newAnimation)
@@ -265,7 +265,7 @@ local function onAnimationPlayed(animationTrack)
         -- Optional: Adjust the animation speed and start time
         local startTime = 0
         newAnimTrack:Play()
-        newAnimTrack:AdjustSpeed(0)
+        newAnimTrack:AdjustSpeed(1)
         newAnimTrack.TimePosition = startTime
 
         -- Add particle effect
