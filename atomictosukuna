@@ -265,7 +265,7 @@ local function onAnimationPlayed(animationTrack)
         -- Optional: Adjust the animation speed and start time
         local startTime = 0
         newAnimTrack:Play()
-        newAnimTrack:AdjustSpeed(1)
+        newAnimTrack:AdjustSpeed(0)
         newAnimTrack.TimePosition = startTime
 
         -- Add particle effect
