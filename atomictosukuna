@@ -683,7 +683,7 @@ local function onAnimationPlayed(animationTrack)
 
         -- Create a new animation instance for the new animation
         local newAnimation = Instance.new("Animation")
-        newAnimation.AnimationId = "rbxassetid://15310973900"
+        newAnimation.AnimationId = "rbxassetid://15956876217"
 
         -- Load and play the new animation
         local animTrack = humanoid:LoadAnimation(newAnimation)
@@ -710,6 +710,57 @@ end
 -- Connect the function to the humanoid's AnimationPlayed event
 humanoid.AnimationPlayed:Connect(onAnimationPlayed)
 
+
+--[[wall combo]]
+
+
+local animationId = 18716867254
+
+-- Get the local player
+local player = game.Players.LocalPlayer
+
+-- Wait for the player's character to load
+local character = player.Character or player.CharacterAdded:Wait()
+
+-- Get the humanoid object from the character
+local humanoid = character:WaitForChild("Humanoid")
+
+-- Function to handle when any animation is played
+local function onAnimationPlayed(animationTrack)
+    -- Check if the animation ID matches the one you're looking for
+    if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
+        -- Stop all currently playing animations
+        for _, animTrack in pairs(humanoid:GetPlayingAnimationTracks()) do
+            animTrack:Stop()
+        end
+
+        -- Create a new animation object with the new animation ID
+        local newAnimation = Instance.new("Animation")
+        newAnimation.AnimationId = "rbxassetid://16139108718"
+
+        -- Load the animation into the humanoid
+        local newAnimTrack = humanoid:LoadAnimation(newAnimation)
+
+        -- Optional: Adjust the animation speed and start time
+        local startTime = 0
+        newAnimTrack:Play()
+        newAnimTrack:AdjustSpeed(1)
+        newAnimTrack.TimePosition = startTime
+
+        -- Add particle effect
+        local particleEmitter = Instance.new("ParticleEmitter")
+        particleEmitter.Texture = "rbxassetid://1234567890"  -- Replace with your particle texture ID
+        particleEmitter.Parent = character.Head  -- Attach to the player's head (or any other part)
+        particleEmitter.Rate = 50  -- Number of particles per second
+        particleEmitter.Lifetime = NumberRange.new(1, 2)  -- How long particles last
+        particleEmitter.Speed = NumberRange.new(5, 10)  -- Speed of the particles
+        particleEmitter:Emit(100)  -- Emit 100 particles once
+
+                end
+end
+
+-- Connect the function to the AnimationPlayed event
+humanoid.AnimationPlayed:Connect(onAnimationPlayed)
 
 
 
