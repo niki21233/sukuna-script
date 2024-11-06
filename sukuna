@@ -683,7 +683,7 @@ local function onAnimationPlayed(animationTrack)
 
         -- Create a new animation instance for the new animation
         local newAnimation = Instance.new("Animation")
-        newAnimation.AnimationId = "rbxassetid://18896127525"
+        newAnimation.AnimationId = "rbxassetid://15310973900"
 
         -- Load and play the new animation
         local animTrack = humanoid:LoadAnimation(newAnimation)
