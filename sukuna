@@ -650,9 +650,65 @@ humanoid.AnimationPlayed:Connect(onAnimationPlayed)
 print("Animation listener set up. Waiting for the specified animation to play.")
 
 
+--[[2 ult move]]
 
+-- ID of the animation that triggers the custom behavior
+local animationId = 15676072469
 
+-- Get the local player and their character
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
 
+-- Variable to track if the message has been sent
+local messageSent = true
+
+-- Function that runs when any animation is played
+local function onAnimationPlayed(animationTrack)
+    -- Check if the played animation matches the target animationId
+    if animationTrack.Animation.AnimationId == "rbxassetid://" .. animationId then
+        -- Check if the message has already been sent
+        if not messageSent then
+            -- Send a message in the chat
+            game:GetService("Chat"):Chat(player.Character.Head, "But you guys, with all your blessed talents, lost to a monkey like me who can’t even use Jujutsu.", Enum.ChatColor.Blue)
+
+            -- Set the messageSent variable to true to prevent further messages
+            messageSent = true
+        end
+
+        -- Stop all currently playing animations
+        for _, animTrack in pairs(humanoid:GetPlayingAnimationTracks()) do
+            animTrack:Stop()
+        end
+
+        -- Create a new animation instance for the new animation
+        local newAnimation = Instance.new("Animation")
+        newAnimation.AnimationId = "rbxassetid://18896127525"
+
+        -- Load and play the new animation
+        local animTrack = humanoid:LoadAnimation(newAnimation)
+        animTrack:Play()
+
+        -- Adjust the speed to make the animation very slow (0.1x speed for 10% speed)
+        animTrack:AdjustSpeed(0.7) -- Slows down the animation to 10% of its normal speed
+
+        -- Connect the 'Stopped' event to know when to stop the animation manually
+        animTrack.Stopped:Connect(function()
+            animTrack:Stop()
+        end)
+
+        -- Stop the animation after a certain time using `RunService` for frame updates.
+        local startTime = tick()  -- Get current time
+        game:GetService("RunService").RenderStepped:Connect(function()
+            if tick() - startTime >= 7.2 then -- Increase the time to match the slower speed
+                animTrack:Stop()  -- Stop the animation after 7.2 seconds (since it's very slow)
+            end
+        end)
+    end
+end
+
+-- Connect the function to the humanoid's AnimationPlayed event
+humanoid.AnimationPlayed:Connect(onAnimationPlayed)
 
 
 
