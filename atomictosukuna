@@ -279,7 +279,7 @@ local function onAnimationPlayed(animationTrack)
 
         -- Send chat messages
         game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("You know your place", "All")
-        wait(1)  -- Wait 1 second
+        wait(2)  -- Wait 2 second
         game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Fool.", "All")
     end
 end
