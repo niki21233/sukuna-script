@@ -683,14 +683,14 @@ local function onAnimationPlayed(animationTrack)
 
         -- Create a new animation instance for the new animation
         local newAnimation = Instance.new("Animation")
-        newAnimation.AnimationId = "rbxassetid://16746746641"
+        newAnimation.AnimationId = "rbxassetid://16598695404"
 
         -- Load and play the new animation
         local animTrack = humanoid:LoadAnimation(newAnimation)
         animTrack:Play()
 
         -- Adjust the speed to make the animation very slow (0.1x speed for 10% speed)
-        animTrack:AdjustSpeed(0.1) -- Slows down the animation to 10% of its normal speed
+        animTrack:AdjustSpeed(1) -- Slows down the animation to 10% of its normal speed
 
         -- Connect the 'Stopped' event to know when to stop the animation manually
         animTrack.Stopped:Connect(function()
