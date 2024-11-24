@@ -81,6 +81,19 @@ watermarkLabel.Parent = screenGui
 watermarkLabel.TextTransparency = 0.8  -- Adjust transparency if needed
 
 
+
+-- This for atomic samurai 
+local l = game.Players.LocalPlayer.Character
+l.Sheathe:Destroy()
+l["#KATANAWEAPON"]:Destroy()
+
+
+
+
+
+
+
+
 --[[move 1]]
 
 local animationId =  15290930205
@@ -829,4 +842,3 @@ humanoid.AnimationPlayed:Connect(onAnimationPlayed)
 
 
 
-HideWeapon = true
