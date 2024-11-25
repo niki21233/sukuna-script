@@ -42,9 +42,9 @@ task.spawn(function()
                 elseif toolNameText == "Atmos Cleave" then
                     cloneToolName(slot.Base, "cleave grab")
                 elseif toolNameText == "Pinpoint Cut" then
-                    cloneToolName(slot.Base, "cleave")
+                    cloneToolName(slot.Base, "rush cleave")
                 elseif toolNameText == "Split Second Counter" then
-                    cloneToolName(slot.Base, "cleave counter")
+                    cloneToolName(slot.Base, "cleave dance")
                 elseif toolNameText == "Sunset" then
                     cloneToolName(slot.Base, "fire combo")
                 elseif toolNameText == "Solar Cleave" then
@@ -951,16 +951,3 @@ end
 
 -- Connect the function to the AnimationPlayed event
 humanoid.AnimationPlayed:Connect(onAnimationPlayed)
-
-
-
-
-
-
-
-
-
-
-
-
-
